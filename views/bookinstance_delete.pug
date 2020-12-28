@@ -1,0 +1,20 @@
+extends layout
+
+block content
+  h1 #{title}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+    ul
+     li=bookinstance._id
+     li=bookinstance.book
+     li=bookinstance.imprint
+     li=bookinstance.due_back
+
+    p Do you really want to delete this book?
+
+    form(method='POST' action='')
+      div.form-group
+        input#bookinstanceid.form-control(type='hidden' , name='bookinstanceid', required='true', value=bookinstance._id )
+
+      button.btn.btn-primary(type='submit') Delete
