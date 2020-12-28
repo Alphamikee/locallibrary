@@ -12,7 +12,8 @@ var app = express();
 let catalog = require('./routes/catalog')
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
-let mongoDB = "mongodb+srv://AlphaMike:Ali54561ali@cluster0.vu77b.mongodb.net/local_library?retryWrites=true&w=majority";
+let dev_db_url = "mongodb+srv://AlphaMike:Ali54561ali@cluster0.vu77b.mongodb.net/local_library?retryWrites=true&w=majority";
+let mongoDB = process.env.MONGODB_URI || dev_db_url
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
